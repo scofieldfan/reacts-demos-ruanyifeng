@@ -16,14 +16,20 @@ var RepoList = React.createClass({
       data: null
     };
   },
-
+  componentWillMount(){
+    console.log('starting')
+  },
   componentDidMount() {
+    console.log('diding'),
     this.props.promise.then(
       value => this.setState({loading: false, data: value}),
-      error => this.setState({loading: false, error: error}));
+      error => this.setState({loading: false, error: error})
+      );
+    console.log(this.props.promise)
   },
 
   render: function() {
+    console.log('frist')
     if (this.state.loading) {
       return <span>Loading...</span>;
     }
@@ -34,7 +40,8 @@ var RepoList = React.createClass({
       var repos = this.state.data.items;
       var repoList = repos.map(function (repo) {
         return (
-          <li><a href={repo.html_url}>{repo.name}</a> ({repo.stargazers_count} stars) <br/> {repo.description}</li>
+          <li>
+          <a href={repo.html_url}>{repo.name}</a> ({repo.stargazers_count} stars) <br/> {repo.description}</li>
         );
       });
       return (

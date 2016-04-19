@@ -14,12 +14,16 @@
         handleChange: function(event) {
           this.setState({value: event.target.value});
         },
+        comClick: function(value){
+          console.log(this.state.value)
+        },
         render: function () {
           var value = this.state.value;
           return (
             <div>
               <input type="text" value={value} onChange={this.handleChange} />
               <p>{value}</p>
+              <button onClick={this.comClick}>123</button>
             </div>
           );
         }

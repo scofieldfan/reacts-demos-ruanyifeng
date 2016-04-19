@@ -11,6 +11,7 @@
 var MyComponent = React.createClass({
   handleClick: function() {
     this.refs.myTextInput.focus();
+    console.log(this.refs.myTextInput.value);/* 获取用户输入的值*/
   },
   render: function() {
     return (

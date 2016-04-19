@@ -18,6 +18,7 @@ export default class App extends React.Component{
   }
 
   handleClick() {
+    console.log(this.state.items.length)
     this.setState({
       items: this.state.items.concat('Item ' + this.state.items.length)
     })
